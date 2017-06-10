@@ -14,7 +14,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	int sentinel;
 	stack_t *head, *tail;
 
-	if (*stack && (*stack)->next == NULL)
+	if (!*stack || (*stack && (*stack)->next == NULL))
 	{
 		printf("L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
