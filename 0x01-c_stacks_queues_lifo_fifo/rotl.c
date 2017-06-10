@@ -17,6 +17,11 @@ void op_rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	tail = head;
 	while (tail)
 	{
+		if (tail == head && tail->next == NULL)
+		{
+			break;
+		}
+
 		if (tail->next == NULL)
 		{
 			*stack = head->next;
