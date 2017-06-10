@@ -82,4 +82,7 @@ void op_mul(stack_t **stack, unsigned int line_number);
  */
 void op_mod(stack_t **stack, unsigned int line_number);
 
+/* op_pchar - prints the char at the top of the stack, followed by a new line. */
+void op_pchar(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY */
