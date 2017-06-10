@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include "monty.h"
 
 /**
@@ -14,10 +13,8 @@
 void push(stack_t **stack, char **tokens, unsigned int line_number)
 {
 	stack_t *new_node;
-	int arg;
 
-	arg = atoi(tokens[1]);
-	if (!arg)
+	if (!tokens[1] || isnum(tokens[1]) != 0)
 	{
 		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);

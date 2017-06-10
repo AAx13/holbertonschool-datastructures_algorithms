@@ -17,7 +17,7 @@ stack_t *stack = NULL;
 int main(int ac, char **av)
 {
 	FILE *fp;
-	char buf[80];
+	char buf[101];
 	char **tokens;
 	unsigned int line_number;
 

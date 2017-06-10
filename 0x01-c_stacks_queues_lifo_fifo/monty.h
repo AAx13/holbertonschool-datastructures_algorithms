@@ -34,6 +34,9 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* isnum - checks if string is a number */
+int isnum(char *str);
+
 /* parse - checks line from file for a single command and argument. */
 char **parse(char *line);
 
