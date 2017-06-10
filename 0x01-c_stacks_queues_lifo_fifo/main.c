@@ -35,22 +35,21 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	line_number = 1;
 	/* retrieve every line from file until EOF */
-	while (fgets(buf, sizeof(buf), fp))
+	for (line_number = 1; fgets(buf, sizeof(buf), fp); line_number++)
 	{
 		/* parse opcode command */
 		tokens = parse(buf);
 
 		/* process opcodes */
 		manage_stack(&stack, tokens, line_number);
-		line_number++;
 	}
+	fclose(fp);
+
 	if (stack)
 	{
 		free_stack(&stack);
 	}
-	fclose(fp);
 
 	return (0);
 }
