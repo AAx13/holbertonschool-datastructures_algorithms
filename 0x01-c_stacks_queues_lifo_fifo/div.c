@@ -25,12 +25,12 @@ void op_div(stack_t **stack, unsigned int line_number)
 		if ((*stack)->next->next == NULL)
 		{
 			tail = (*stack)->next;
-			(*stack)->n /= tail->n;
-			if ((*stack)->n == 0)
+			if (tail->n == 0)
 			{
 				printf("L%d: division by zero\n", line_number);
 				exit(EXIT_FAILURE);
 			}
+			(*stack)->n = tail->n / (*stack)->n;
 			(*stack)->next = NULL;
 			free(tail);
 			*stack = head;
