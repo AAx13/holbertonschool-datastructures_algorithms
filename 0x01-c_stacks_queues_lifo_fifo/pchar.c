@@ -11,31 +11,20 @@
  */
 void op_pchar(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head, *tail;
+	stack_t *head;
 
-	if (!*stack)
+	head = *stack;
+	if (!head)
 	{
 		printf("L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	head = *stack;
-	while (*stack)
-	{
-		if ((*stack)->next == NULL)
-		{
-			tail = *stack;
-			break;
-		}
-		*stack = (*stack)->next;
-	}
-
-	if (tail->n < 0 || tail->n > 127)
+	if (head->n < 0 || head->n > 127)
 	{
 		printf("L%d: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%c\n", tail->n);
-	*stack = head;
+	printf("%c\n", head->n);
 }
