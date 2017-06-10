@@ -18,10 +18,10 @@ void op_pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	{
 		if (head->n == 0 || head->n < 0 || head->n > 127)
 		{
-			putchar('\n');
 			break;
 		}
 		putchar(head->n);
 		head = head->next;
 	}
+	putchar('\n');
 }
