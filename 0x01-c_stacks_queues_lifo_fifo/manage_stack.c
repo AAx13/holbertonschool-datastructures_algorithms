@@ -17,6 +17,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 	instruction_t func[] = {
 
 		{ "pall", &pall },
+		{ "pint", &pint },
 		{ NULL, NULL }
 	};
 

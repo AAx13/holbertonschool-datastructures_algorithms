@@ -52,4 +52,7 @@ void push(stack_t **stack, char **tokens, unsigned int line_number);
 /* pall - print the stack. */
 void pall(stack_t **stack, unsigned int line_number);
 
+/* pint - prints the value at the top of the stack. */
+void pint(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY */
