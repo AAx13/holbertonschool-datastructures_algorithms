@@ -11,42 +11,20 @@
  */
 void op_swap(stack_t **stack, unsigned int line_number)
 {
-	int sentinel;
-	stack_t *head, *tail;
+	stack_t *head, *tmp_node;
 
-	if (!*stack || (*stack && (*stack)->next == NULL))
+	head = *stack;
+	if (!head || head->next == NULL)
 	{
 		printf("L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	head = *stack;
-	for (sentinel = 0; *stack; *stack = (*stack)->next, sentinel++)
-	{
-		if ((*stack)->next == NULL)
-		{
-			tail = *stack;
-		}
-	}
+	tmp_node = head->next;
+	head->next = tmp_node->next;
+	head->prev = tmp_node;
 
-	if (sentinel < 3)
-	{
-		head->next = NULL;
-		tail->next = head;
-		tail->prev = NULL;
-		head->prev = tail;
-	}
-	else
-	{
-		*stack = tail->prev;
-		tail->prev = NULL;
-
-		tail->next = head->next;
-		head->next->prev = tail;
-		head->next = NULL;
-
-		(*stack)->next = head;
-		head->prev = *stack;
-	}
-	*stack = tail;
+	tmp_node->next = head;
+	tmp_node->prev = NULL;
+	*stack = tmp_node;
 }
