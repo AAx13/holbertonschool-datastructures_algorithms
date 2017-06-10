@@ -21,6 +21,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		{ "pop", &pop },
 		{ "swap", &swap },
 		{ "add", &add },
+		{ "nop", &nop },
 		{ NULL, NULL }
 	};
 

@@ -64,4 +64,7 @@ void swap(stack_t **stack, unsigned int line_number);
 /* add - adds the top two elements of the stack. */
 void add(stack_t **stack, unsigned int line_number);
 
+/* nop - doesn't do anything */
+void nop(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY */
