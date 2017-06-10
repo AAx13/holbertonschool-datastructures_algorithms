@@ -14,21 +14,14 @@ void op_pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	stack_t *head;
 
 	head = *stack;
-	while (*stack)
+	while (head)
 	{
-		if ((*stack)->next == NULL)
+		if (head->n == 0 || head->n < 0 || head->n > 127)
 		{
-			while (*stack)
-			{
-				if ((*stack)->n == 0 || ((*stack)->n < 0 || (*stack)->n > 127))
-				{
-					break;
-				}
-				printf("%c\n", (*stack)->n);
-				*stack = (*stack)->prev;
-			}
+			putchar('\n');
+			break;
 		}
-		*stack = (*stack)->next;
+		putchar(head->n);
+		head = head->next;
 	}
-	*stack = head;
 }
