@@ -4,7 +4,7 @@
 
 /**
  * op_mod - computes the remainder of the division of
- * the second top element of the stack by the top element.
+ * the second top element and the stack by the top element.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *

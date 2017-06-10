@@ -3,7 +3,7 @@
 #include "monty.h"
 
 /**
- * op_mul - multiplies the second top element of the stack with the top element.
+ * op_mul - multiplies the second top element with the top element.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *

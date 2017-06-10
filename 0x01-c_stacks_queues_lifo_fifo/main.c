@@ -41,15 +41,19 @@ int main(int ac, char **av)
 		/* parse opcode command */
 		tokens = parse(buf);
 
+		/* ignore comments */
+		if (tokens[0][0] == '#')
+		{
+			free(tokens);
+			continue;
+		}
+
 		/* process opcodes */
 		manage_stack(&stack, tokens, line_number);
 	}
 	fclose(fp);
-
 	if (stack)
-	{
 		free_stack(&stack);
-	}
 
 	return (0);
 }
