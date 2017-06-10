@@ -24,6 +24,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		{ "nop", &op_nop },
 		{ "sub", &op_sub },
 		{ "div", &op_div },
+		{ "mul", &op_mul },
 		{ NULL, NULL }
 	};
 

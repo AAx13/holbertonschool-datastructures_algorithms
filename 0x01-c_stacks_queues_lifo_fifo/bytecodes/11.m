@@ -1,9 +1,7 @@
 push 1
-push 10
 push 2
-pop
-pop
-pop
+push 3
+push 4
 pall
-div
+mul
 pall

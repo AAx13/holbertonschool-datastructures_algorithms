@@ -73,4 +73,7 @@ void op_sub(stack_t **stack, unsigned int line_number);
 /* op_div - divides the second top element of the stack by the top element. */
 void op_div(stack_t **stack, unsigned int line_number);
 
+/* * op_mul - multiplies the second top element of the stack with the top element. */
+void op_mul(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY */

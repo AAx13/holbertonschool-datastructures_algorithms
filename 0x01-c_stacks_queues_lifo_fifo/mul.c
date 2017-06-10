@@ -3,19 +3,19 @@
 #include "monty.h"
 
 /**
- * op_div - divides the second top element of the stack by the top element.
+ * op_mul - multiplies the second top element of the stack with the top element.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *
  * Return: Void.
  */
-void op_div(stack_t **stack, unsigned int line_number)
+void op_mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tail, *head;
 
 	if (!*stack || (*stack && (*stack)->next == NULL))
 	{
-		printf("L%d: can't div, stack too short\n", line_number);
+		printf("L%d: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,12 +25,7 @@ void op_div(stack_t **stack, unsigned int line_number)
 		if ((*stack)->next->next == NULL)
 		{
 			tail = (*stack)->next;
-			if (tail->n == 0)
-			{
-				printf("L%d: division by zero\n", line_number);
-				exit(EXIT_FAILURE);
-			}
-			(*stack)->n /= tail->n;
+			(*stack)->n *= tail->n;
 			(*stack)->next = NULL;
 			*stack = head;
 			free(tail);
