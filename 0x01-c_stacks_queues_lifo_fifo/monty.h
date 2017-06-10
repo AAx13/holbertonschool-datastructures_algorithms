@@ -55,4 +55,7 @@ void pall(stack_t **stack, unsigned int line_number);
 /* pint - prints the value at the top of the stack. */
 void pint(stack_t **stack, unsigned int line_number);
 
+/* pop - removes the top elemnt of the stack. */
+void pop(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY */
