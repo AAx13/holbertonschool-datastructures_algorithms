@@ -31,11 +31,6 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		{ NULL, NULL }
 	};
 
-	if (!tokens[0])
-	{
-		return (EXIT_FAILURE);
-	}
-
 	if (strcmp(tokens[0], "push") == 0)
 	{
 		op_push(stack, tokens, line_number);

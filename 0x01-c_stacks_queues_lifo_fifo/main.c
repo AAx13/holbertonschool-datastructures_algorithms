@@ -18,8 +18,8 @@ int main(int ac, char **av)
 {
 	FILE *fp;
 	char buf[101];
-	char *tokens[3];
 	unsigned int line_number;
+	char *tokens[3] = { NULL, NULL, NULL };
 
 	if (ac != 2)
 	{
@@ -42,7 +42,7 @@ int main(int ac, char **av)
 		parse(buf, tokens);
 
 		/* ignore comments */
-		if (tokens[0][0] == '#')
+		if (!tokens[0] || tokens[0][0] == '#')
 			continue;
 
 		/* process opcodes */
