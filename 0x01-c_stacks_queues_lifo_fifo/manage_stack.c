@@ -19,6 +19,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		{ "pall", &pall },
 		{ "pint", &pint },
 		{ "pop", &pop },
+		{ "swap", &swap },
 		{ NULL, NULL }
 	};
 

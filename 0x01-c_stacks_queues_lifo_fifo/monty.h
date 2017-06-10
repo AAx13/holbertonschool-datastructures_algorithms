@@ -58,4 +58,7 @@ void pint(stack_t **stack, unsigned int line_number);
 /* pop - removes the top elemnt of the stack. */
 void pop(stack_t **stack, unsigned int line_number);
 
+/* swap - swaps the top two elements of the stack. */
+void swap(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY */

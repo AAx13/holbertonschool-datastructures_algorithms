@@ -12,7 +12,7 @@
  */
 void push(stack_t **stack, char **tokens, unsigned int line_number)
 {
-	stack_t *new_node;
+	stack_t *new_node, *head;
 
 	if (!tokens[1] || isnum(tokens[1]) != 0)
 	{
@@ -28,6 +28,7 @@ void push(stack_t **stack, char **tokens, unsigned int line_number)
 	}
 
 	/* if stack is empty */
+	head = *stack;
 	if (*stack == NULL)
 	{
 		*stack = new_node;
@@ -43,6 +44,7 @@ void push(stack_t **stack, char **tokens, unsigned int line_number)
 				(*stack)->next = new_node;
 				new_node->prev = *stack;
 				new_node->next = NULL;
+				*stack = head;
 				break;
 			}
 			*stack = (*stack)->next;
