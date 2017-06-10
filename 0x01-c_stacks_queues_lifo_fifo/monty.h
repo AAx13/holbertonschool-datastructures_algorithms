@@ -76,7 +76,7 @@ void op_div(stack_t **stack, unsigned int line_number);
 /* op_mul - multiplies the second top element of the stack with the top. */
 void op_mul(stack_t **stack, unsigned int line_number);
 
-/* 
+/*
  * op_mod - computes the remainder of the division of
  * the second top element and the stack by the top element.
  */
