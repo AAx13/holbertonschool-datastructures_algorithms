@@ -30,7 +30,7 @@ void op_div(stack_t **stack, unsigned int line_number)
 				printf("L%d: division by zero\n", line_number);
 				exit(EXIT_FAILURE);
 			}
-			(*stack)->n = tail->n / (*stack)->n;
+			(*stack)->n /= tail->n;
 			(*stack)->next = NULL;
 			free(tail);
 			*stack = head;
