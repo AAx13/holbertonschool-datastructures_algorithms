@@ -20,7 +20,7 @@ void op_sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	head->next->n -= head->n;
+	head->n -= head->next->n;
 	head->next->prev = NULL;
 	*stack = head->next;
 	free(head);
