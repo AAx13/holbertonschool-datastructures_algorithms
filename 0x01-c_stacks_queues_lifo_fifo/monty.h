@@ -46,29 +46,31 @@ void free_stack(stack_t **stack);
 /* manage_stack - manage the passing of opcode to their respective functions */
 int manage_stack(stack_t **stack, char **tokens, unsigned int line_number);
 
-/* push - push an element onto the stack. */
-void push(stack_t **stack, char **tokens, unsigned int line_number);
+/* op_push - push an element onto the stack. */
+void op_push(stack_t **stack, char **tokens, unsigned int line_number);
 
-/* pall - print the stack. */
-void pall(stack_t **stack, unsigned int line_number);
+/* op_pall - print the stack. */
+void op_pall(stack_t **stack, unsigned int line_number);
 
-/* pint - prints the value at the top of the stack. */
-void pint(stack_t **stack, unsigned int line_number);
+/* op_pint - prints the value at the top of the stack. */
+void op_pint(stack_t **stack, unsigned int line_number);
 
-/* pop - removes the top elemnt of the stack. */
-void pop(stack_t **stack, unsigned int line_number);
+/* op_pop - removes the top elemnt of the stack. */
+void op_pop(stack_t **stack, unsigned int line_number);
 
-/* swap - swaps the top two elements of the stack. */
-void swap(stack_t **stack, unsigned int line_number);
+/* op_swap - swaps the top two elements of the stack. */
+void op_swap(stack_t **stack, unsigned int line_number);
 
-/* add - adds the top two elements of the stack. */
-void add(stack_t **stack, unsigned int line_number);
+/* op_add - adds the top two elements of the stack. */
+void op_add(stack_t **stack, unsigned int line_number);
 
-/* nop - doesn't do anything */
-void nop(stack_t **stack, unsigned int line_number);
+/* op_nop - doesn't do anything */
+void op_nop(stack_t **stack, unsigned int line_number);
 
-/* sub - subtracts the top element of the stack from the second top element. */
-void sub(stack_t **stack, unsigned int line_number);
+/* op_sub - subtracts the top element of the stack from the second top element. */
+void op_sub(stack_t **stack, unsigned int line_number);
 
+/* op_div - divides the second top element of the stack by the top element. */
+void op_div(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY */

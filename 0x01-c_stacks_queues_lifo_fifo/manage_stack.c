@@ -16,13 +16,14 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 	int i;
 	instruction_t func[] = {
 
-		{ "pall", &pall },
-		{ "pint", &pint },
-		{ "pop", &pop },
-		{ "swap", &swap },
-		{ "add", &add },
-		{ "nop", &nop },
-		{ "sub", &sub },
+		{ "pall", &op_pall },
+		{ "pint", &op_pint },
+		{ "pop", &op_pop },
+		{ "swap", &op_swap },
+		{ "add", &op_add },
+		{ "nop", &op_nop },
+		{ "sub", &op_sub },
+		{ "div", &op_div },
 		{ NULL, NULL }
 	};
 
@@ -34,7 +35,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 
 	if (strcmp(tokens[0], "push") == 0)
 	{
-		push(stack, tokens, line_number);
+		op_push(stack, tokens, line_number);
 		return (EXIT_SUCCESS);
 	}
 

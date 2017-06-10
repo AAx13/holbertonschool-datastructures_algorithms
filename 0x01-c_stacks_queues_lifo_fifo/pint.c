@@ -3,13 +3,13 @@
 #include "monty.h"
 
 /**
- * pint - prints the value at the top of the stack.
+ * op_pint - prints the value at the top of the stack.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *
  * Return: Void.
  */
-void pint(stack_t **stack, unsigned int line_number)
+void op_pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head;
 

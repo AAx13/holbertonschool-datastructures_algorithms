@@ -3,13 +3,13 @@
 #include "monty.h"
 
 /**
- * add - adds the top two elements of the stack.
+ * op_add - adds the top two elements of the stack.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *
  * Return: Void.
  */
-void add(stack_t **stack, unsigned int line_number)
+void op_add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tail, *head;
 

@@ -3,14 +3,14 @@
 #include "monty.h"
 
 /**
- * push - push an element onto the stack.
+ * op_push - push an element onto the stack.
  * @stack: The stack to operate on.
  * @tokens: Tokenized opcode command.
  * @line_number: Line number of the current opcode in operation.
  *
  * Return: Void.
  */
-void push(stack_t **stack, char **tokens, unsigned int line_number)
+void op_push(stack_t **stack, char **tokens, unsigned int line_number)
 {
 	stack_t *new_node, *head;
 

@@ -3,13 +3,13 @@
 #include "monty.h"
 
 /**
- * pop - removes the top element of the stack.
+ * op_pop - removes the top element of the stack.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *
  * Return: Void.
  */
-void pop(stack_t **stack, unsigned int line_number)
+void op_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp_node;
 

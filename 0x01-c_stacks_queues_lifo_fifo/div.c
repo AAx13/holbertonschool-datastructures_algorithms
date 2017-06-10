@@ -3,19 +3,19 @@
 #include "monty.h"
 
 /**
- * op_sub - subtracts the top element of the stack from the second top element.
+ * op_div - divides the second top element of the stack by the top element.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *
  * Return: Void.
  */
-void op_sub(stack_t **stack, unsigned int line_number)
+void op_div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tail, *head;
 
 	if (!*stack || (*stack && (*stack)->next == NULL))
 	{
-		printf("L%d: can't sub, stack too short\n", line_number);
+		printf("L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,7 +25,12 @@ void op_sub(stack_t **stack, unsigned int line_number)
 		if ((*stack)->next->next == NULL)
 		{
 			tail = (*stack)->next;
-			(*stack)->n -= tail->n;
+			(*stack)->n /= tail->n;
+			if ((*stack)->n == 0)
+			{
+				printf("L%d: division by zero\n", line_number);
+				exit(EXIT_FAILURE);
+			}
 			(*stack)->next = NULL;
 			free(tail);
 			*stack = head;

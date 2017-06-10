@@ -3,13 +3,13 @@
 #include "monty.h"
 
 /**
- * swap - swaps the top two elements of the stack.
+ * op_swap - swaps the top two elements of the stack.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *
  * Return: Void.
  */
-void swap(stack_t **stack, unsigned int line_number)
+void op_swap(stack_t **stack, unsigned int line_number)
 {
 	int sentinel;
 	stack_t *head, *tail;
