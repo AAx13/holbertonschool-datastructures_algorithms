@@ -61,4 +61,7 @@ void pop(stack_t **stack, unsigned int line_number);
 /* swap - swaps the top two elements of the stack. */
 void swap(stack_t **stack, unsigned int line_number);
 
+/* add - adds the top two elements of the stack. */
+void add(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY */
