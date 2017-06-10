@@ -1,9 +1,10 @@
 push 1
 push 2
-push 3
-push 4
-pint
+swap
+swap
+swap
+swap
+swap
 pop
 swap
-add
 pall
