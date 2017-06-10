@@ -11,26 +11,17 @@
  */
 void op_mul(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tail, *head;
+	stack_t *head;
 
-	if (!*stack || (*stack && (*stack)->next == NULL))
+	head = *stack;
+	if (!head || head->next == NULL)
 	{
 		printf("L%d: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	head = *stack;
-	while (*stack)
-	{
-		if ((*stack)->next->next == NULL)
-		{
-			tail = (*stack)->next;
-			(*stack)->n *= tail->n;
-			(*stack)->next = NULL;
-			*stack = head;
-			free(tail);
-			break;
-		}
-		*stack = (*stack)->next;
-	}
+	head->next->n /= head->n;
+	head->next->prev = NULL;
+	*stack = head->next;
+	free(head);
 }
