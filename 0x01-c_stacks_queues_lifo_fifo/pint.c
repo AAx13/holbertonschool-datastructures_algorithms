@@ -13,21 +13,12 @@ void op_pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head;
 
-	if (!*stack)
+	head = *stack;
+	if (!head)
 	{
 		printf("L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	head = *stack;
-	while (*stack)
-	{
-		if ((*stack)->next == NULL)
-		{
-			printf("%d\n", (*stack)->n);
-			*stack = head;
-			break;
-		}
-		*stack = (*stack)->next;
-	}
+	printf("%d\n", head->n);
 }
