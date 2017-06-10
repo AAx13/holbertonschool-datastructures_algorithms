@@ -18,7 +18,7 @@ int main(int ac, char **av)
 {
 	FILE *fp;
 	char buf[101];
-	char **tokens;
+	char *tokens[3];
 	unsigned int line_number;
 
 	if (ac != 2)
@@ -39,14 +39,11 @@ int main(int ac, char **av)
 	for (line_number = 1; fgets(buf, sizeof(buf), fp); line_number++)
 	{
 		/* parse opcode command */
-		tokens = parse(buf);
+		parse(buf, tokens);
 
 		/* ignore comments */
 		if (tokens[0][0] == '#')
-		{
-			free(tokens);
 			continue;
-		}
 
 		/* process opcodes */
 		manage_stack(&stack, tokens, line_number);

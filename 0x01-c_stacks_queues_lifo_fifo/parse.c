@@ -6,21 +6,14 @@
 /**
  * parse - checks line from file for a single command and argument.
  * @line: A line from file.
+ * @tokens: Array of strings.
  *
- * Return: Tokenized line from file.
+ * Return: Void.
  */
-char **parse(char *line)
+void parse(char *line, char **tokens)
 {
 	int i;
 	char *token;
-	char **tokens;
-
-	tokens = malloc(sizeof(char *) * 3);
-	if (!tokens)
-	{
-		printf("Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
 
 	token = strtok(line, "\n ");
 	for (i = 0; token && i < 2; i++)
@@ -29,6 +22,4 @@ char **parse(char *line)
 		token = strtok(NULL, "\n ");
 	}
 	tokens[i] = NULL;
-
-	return (tokens);
 }

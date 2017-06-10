@@ -17,7 +17,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 	instruction_t func[] = {
 
 		{ "pall", &op_pall },
-		{ "pint", &op_pint },
+		/*{ "pint", &op_pint },
 		{ "pop", &op_pop },
 		{ "swap", &op_swap },
 		{ "add", &op_add },
@@ -27,12 +27,12 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		{ "mul", &op_mul },
 		{ "mod", &op_mod },
 		{ "pchar", &op_pchar },
+		{ "pstr", &op_pstr },*/
 		{ NULL, NULL }
 	};
 
 	if (!tokens[0])
 	{
-		free(tokens);
 		return (EXIT_FAILURE);
 	}
 
@@ -46,13 +46,11 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 	{
 		if (strcmp(func[i].opcode, tokens[0]) == 0)
 		{
-			free(tokens);
 			func[i].f(stack, line_number);
 			return (EXIT_SUCCESS);
 		}
 	}
 	printf("L%d: unknown instruction %s\n", line_number, tokens[0]);
-	free(tokens);
 	exit(EXIT_FAILURE);
 
 	return (0);

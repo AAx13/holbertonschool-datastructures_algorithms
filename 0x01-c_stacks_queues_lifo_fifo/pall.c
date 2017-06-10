@@ -13,18 +13,9 @@ void op_pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	stack_t *head;
 
 	head = *stack;
-	while (*stack)
+	while (head)
 	{
-		if ((*stack)->next == NULL)
-		{
-			while (*stack)
-			{
-				printf("%d\n", (*stack)->n);
-				*stack = (*stack)->prev;
-			}
-			break;
-		}
-		*stack = (*stack)->next;
+		printf("%d\n", head->n);
+		head = head->next;
 	}
-	*stack = head;
 }

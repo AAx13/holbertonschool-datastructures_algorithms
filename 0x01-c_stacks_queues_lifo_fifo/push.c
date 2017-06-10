@@ -27,29 +27,20 @@ void op_push(stack_t **stack, char **tokens, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	/* if stack is empty */
 	head = *stack;
-	if (*stack == NULL)
+	/* if stack is empty */
+	if (head == NULL)
 	{
-		*stack = new_node;
-		new_node->prev = NULL;
 		new_node->next = NULL;
+		new_node->prev = NULL;
+		*stack = new_node;
 	}
 	else
 	{
-		while (*stack)
-		{
-			if ((*stack)->next == NULL)
-			{
-				(*stack)->next = new_node;
-				new_node->prev = *stack;
-				new_node->next = NULL;
-				*stack = head;
-				break;
-			}
-			*stack = (*stack)->next;
-		}
+		new_node->next = head;
+		head->prev = new_node;
+		new_node->prev = NULL;
+		*stack = new_node;
 	}
 	new_node->n = atoi(tokens[1]);
-	free(tokens);
 }

@@ -38,7 +38,7 @@ typedef struct instruction_s
 int isnum(char *str);
 
 /* parse - checks line from file for a single command and argument. */
-char **parse(char *line);
+void parse(char *line, char **tokens);
 
 /* free_stack - frees the stack. */
 void free_stack(stack_t **stack);
@@ -67,13 +67,13 @@ void op_add(stack_t **stack, unsigned int line_number);
 /* op_nop - doesn't do anything */
 void op_nop(stack_t **stack, unsigned int line_number);
 
-/* op_sub - subtracts the top element of the stack from the second top element. */
+/* op_sub - subtracts the top element of the stack from the second top. */
 void op_sub(stack_t **stack, unsigned int line_number);
 
 /* op_div - divides the second top element of the stack by the top element. */
 void op_div(stack_t **stack, unsigned int line_number);
 
-/* op_mul - multiplies the second top element of the stack with the top element. */
+/* op_mul - multiplies the second top element of the stack with the top. */
 void op_mul(stack_t **stack, unsigned int line_number);
 
 /* 
@@ -82,7 +82,10 @@ void op_mul(stack_t **stack, unsigned int line_number);
  */
 void op_mod(stack_t **stack, unsigned int line_number);
 
-/* op_pchar - prints the char at the top of the stack, followed by a new line. */
+/* op_pchar - prints the char at the top of the stack. */
 void op_pchar(stack_t **stack, unsigned int line_number);
+
+/* op_pstr -  prints the string starting at the top of the stack. */
+void op_pstr(stack_t **strack, unsigned int line_number);
 
 #endif /* MONTY */
