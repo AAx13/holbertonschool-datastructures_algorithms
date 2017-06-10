@@ -67,4 +67,8 @@ void add(stack_t **stack, unsigned int line_number);
 /* nop - doesn't do anything */
 void nop(stack_t **stack, unsigned int line_number);
 
+/* sub - subtracts the top element of the stack from the second top element. */
+void sub(stack_t **stack, unsigned int line_number);
+
+
 #endif /* MONTY */
