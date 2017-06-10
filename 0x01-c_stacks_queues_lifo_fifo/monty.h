@@ -40,7 +40,7 @@ char **parse(char *line);
 /* free_stack - frees the stack. */
 void free_stack(stack_t **stack);
 
-/* manage_stack - manages the passing of opcode to their respective functions. */
+/* manage_stack - manage the passing of opcode to their respective functions */
 int manage_stack(stack_t **stack, char **tokens, unsigned int line_number);
 
 /* push - push an element onto the stack. */

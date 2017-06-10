@@ -14,8 +14,8 @@
 int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 {
 	int i;
-	instruction_t func[] =
-	{
+	instruction_t func[] = {
+
 		{ "pall", &pall },
 		{ NULL, NULL }
 	};
@@ -32,7 +32,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		return (EXIT_SUCCESS);
 	}
 
-	for(i = 0; func[i].opcode; i++)
+	for (i = 0; func[i].opcode; i++)
 	{
 		if (strcmp(func[i].opcode, tokens[0]) == 0)
 		{
