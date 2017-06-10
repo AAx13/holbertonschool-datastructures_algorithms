@@ -85,7 +85,10 @@ void op_mod(stack_t **stack, unsigned int line_number);
 /* op_pchar - prints the char at the top of the stack. */
 void op_pchar(stack_t **stack, unsigned int line_number);
 
-/* op_pstr -  prints the string starting at the top of the stack. */
-void op_pstr(stack_t **strack, unsigned int line_number);
+/* op_pstr - prints the string starting at the top of the stack. */
+void op_pstr(stack_t **stack, unsigned int line_number);
+
+/* op_rotl - rotates the stack to the top. */
+void op_rotl(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY */
