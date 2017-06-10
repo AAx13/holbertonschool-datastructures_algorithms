@@ -17,7 +17,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 	instruction_t func[] = {
 
 		{ "pall", &op_pall },
-		/*{ "pint", &op_pint },
+		{ "pint", &op_pint },
 		{ "pop", &op_pop },
 		{ "swap", &op_swap },
 		{ "add", &op_add },
@@ -27,7 +27,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		{ "mul", &op_mul },
 		{ "mod", &op_mod },
 		{ "pchar", &op_pchar },
-		{ "pstr", &op_pstr },*/
+		{ "pstr", &op_pstr },
 		{ NULL, NULL }
 	};
 
