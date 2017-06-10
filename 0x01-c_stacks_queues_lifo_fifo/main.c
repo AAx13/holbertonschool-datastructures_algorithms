@@ -4,8 +4,13 @@
 #include <string.h>
 #include "monty.h"
 
+/* Initialization of the stack */
+stack_t *stack = NULL;
+
 /**
  * main - main crossroad in processing monty opcodes.
+ * @ac: Amount of args passed (int).
+ * @av: Array of strings containing args passed.
  *
  * Return: 0.
  */
@@ -14,7 +19,7 @@ int main(int ac, char **av)
 	FILE *fp;
 	char buf[80];
 	char **tokens;
-	unsigned int i;
+	unsigned int line_number;
 
 	if (ac != 2)
 	{
@@ -30,24 +35,21 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	i = 1;
+	line_number = 1;
 	/* retrieve every line from file until EOF */
-	while(fgets(buf, sizeof(buf), fp))
+	while (fgets(buf, sizeof(buf), fp))
 	{
 		/* parse opcode command */
 		tokens = parse(buf);
 
-		if (*tokens && strcmp(*tokens, "push") == 0)
-		{
-			/* build stack */
-		}
-		else
-		{
-			/* execute opcode on the stack. */
-		}
-		i++;
+		/* process opcodes */
+		manage_stack(&stack, tokens, line_number);
+		line_number++;
 	}
-
+	if (stack)
+	{
+		free_stack(&stack);
+	}
 	fclose(fp);
 
 	return (0);

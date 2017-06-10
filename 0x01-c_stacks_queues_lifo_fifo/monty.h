@@ -17,6 +17,9 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+/* external declaration of the stack to pass between functions */
+extern stack_t *stack;
+
 /**
  * struct instruction_s - opcoode and its function
  * @opcode: the opcode
@@ -34,7 +37,16 @@ typedef struct instruction_s
 /* parse - checks line from file for a single command and argument. */
 char **parse(char *line);
 
-/* push - handles stack related opcode commands */
-void push(stack_t **stack, unsigned int line_number);
+/* free_stack - frees the stack. */
+void free_stack(stack_t **stack);
+
+/* manage_stack - manages the passing of opcode to their respective functions. */
+int manage_stack(stack_t **stack, char **tokens, unsigned int line_number);
+
+/* push - push an element onto the stack. */
+void push(stack_t **stack, char **tokens, unsigned int line_number);
+
+/* pall - print the stack. */
+void pall(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY */
