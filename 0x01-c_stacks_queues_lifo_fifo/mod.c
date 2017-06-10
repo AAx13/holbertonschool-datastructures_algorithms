@@ -12,31 +12,23 @@
  */
 void op_mod(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tail, *head;
+	stack_t *head;
 
-	if (!*stack || (*stack && (*stack)->next == NULL))
+	head = *stack;
+	if (!head || head->next == NULL)
 	{
 		printf("L%d: can't mod, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	head = *stack;
-	while (*stack)
+	if (head->n == 0)
 	{
-		if ((*stack)->next->next == NULL)
-		{
-			tail = (*stack)->next;
-			if (tail->n == 0)
-			{
-				printf("L%d: division by zero\n", line_number);
-				exit(EXIT_FAILURE);
-			}
-			(*stack)->n %= tail->n;
-			(*stack)->next = NULL;
-			*stack = head;
-			free(tail);
-			break;
-		}
-		*stack = (*stack)->next;
+		printf("L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
 	}
+
+	head->next->n %= head->n;
+	head->next->prev = NULL;
+	*stack = head->next;
+	free(head);
 }
