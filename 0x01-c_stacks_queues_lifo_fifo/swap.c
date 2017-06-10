@@ -11,6 +11,7 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
+	int sentinel;
 	stack_t *head, *tail;
 
 	if (*stack && (*stack)->next == NULL)
@@ -20,22 +21,32 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 
 	head = *stack;
-	while (*stack)
+	for (sentinel = 0; *stack; *stack = (*stack)->next, sentinel++)
 	{
 		if ((*stack)->next == NULL)
 		{
 			tail = *stack;
 		}
-		*stack = (*stack)->next;
 	}
-	*stack = tail->prev;
-	tail->prev = NULL;
 
-	tail->next = head->next;
-	head->next->prev = tail;
-	head->next = NULL;
+	if (sentinel < 3)
+	{
+		head->next = NULL;
+		tail->next = head;
+		tail->prev = NULL;
+		head->prev = tail;
+	}
+	else
+	{
+		*stack = tail->prev;
+		tail->prev = NULL;
 
-	(*stack)->next = head;
-	head->prev = *stack;
+		tail->next = head->next;
+		head->next->prev = tail;
+		head->next = NULL;
+
+		(*stack)->next = head;
+		head->prev = *stack;
+	}
 	*stack = tail;
 }
