@@ -14,8 +14,10 @@
 void push(stack_t **stack, char **tokens, unsigned int line_number)
 {
 	stack_t *new_node;
+	int arg;
 
-	if (!tokens[1] || (tokens[1] && isdigit(tokens[1][0]) == 0))
+	arg = atoi(tokens[1]);
+	if (!arg)
 	{
 		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
