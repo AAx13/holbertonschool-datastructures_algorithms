@@ -40,8 +40,8 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 	{
 		if (strcmp(func[i].opcode, tokens[0]) == 0)
 		{
-			func[i].f(stack, line_number);
 			free(tokens);
+			func[i].f(stack, line_number);
 			return (EXIT_SUCCESS);
 		}
 	}

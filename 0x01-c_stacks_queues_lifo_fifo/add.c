@@ -11,9 +11,9 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *prev_node, *head;
+	stack_t *tail, *head;
 
-	if (*stack && (*stack)->next == NULL)
+	if (!*stack || (*stack && (*stack)->next == NULL))
 	{
 		printf("L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
@@ -22,12 +22,12 @@ void add(stack_t **stack, unsigned int line_number)
 	head = *stack;
 	while (*stack)
 	{
-		if ((*stack)->next == NULL)
+		if ((*stack)->next->next == NULL)
 		{
-			prev_node = (*stack)->prev;
-			prev_node->n += (*stack)->n;
-			prev_node->next = NULL;
-			free(*stack);
+			tail = (*stack)->next;
+			(*stack)->n += tail->n;
+			(*stack)->next = NULL;
+			free(tail);
 			*stack = head;
 			break;
 		}
