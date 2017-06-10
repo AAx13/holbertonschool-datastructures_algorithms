@@ -20,6 +20,12 @@ void op_div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
+	if (head->n == 0)
+	{
+		printf("L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 	head->next->n /= head->n;
 	head->next->prev = NULL;
 	*stack = head->next;
