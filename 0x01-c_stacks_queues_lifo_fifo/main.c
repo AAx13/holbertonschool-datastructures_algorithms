@@ -50,7 +50,9 @@ int main(int ac, char **av)
 	}
 	fclose(fp);
 	if (stack)
+	{
 		free_stack(&stack);
+	}
 
 	return (0);
 }
