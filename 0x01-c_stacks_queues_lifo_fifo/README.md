@@ -1,1 +1,5 @@
-# C - Stacks, Queues - LIFO, FIFO
+# Stacks, Queues - LIFO, FIFO Project
+
+
+## Functions
+

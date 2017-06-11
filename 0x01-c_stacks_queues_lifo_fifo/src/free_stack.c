@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "monty.h"
+#include "../monty.h"
 
 /**
  * free_stack - frees the stack.

@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "monty.h"
+#include "../monty.h"
 
 /**
  * manage_stack - manages the passing of opcode to their respective functions.

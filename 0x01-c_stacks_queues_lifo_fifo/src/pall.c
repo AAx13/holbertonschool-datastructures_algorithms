@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "monty.h"
+#include "../monty.h"
 
 /**
  * op_pall - print the stack.

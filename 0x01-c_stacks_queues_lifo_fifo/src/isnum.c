@@ -1,5 +1,5 @@
 #include <ctype.h>
-#include "monty.h"
+#include "../monty.h"
 
 /**
  * isnum - checks if string is a number.

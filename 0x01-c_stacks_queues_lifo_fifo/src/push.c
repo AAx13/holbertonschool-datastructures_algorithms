@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "monty.h"
+#include "../monty.h"
 
 /**
  * op_push - push an element onto the stack.
