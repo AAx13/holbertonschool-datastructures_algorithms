@@ -15,8 +15,10 @@ void op_swap(stack_t **stack, unsigned int line_number)
 
 	head = *stack;
 	if (!head || head->next == NULL)
+	{
 		printf("L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
+	}
 
 	/* if only two nodes */
 	if (head->next->next == NULL)
