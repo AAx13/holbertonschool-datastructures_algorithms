@@ -43,19 +43,14 @@ int main(int ac, char **av)
 
 		/* ignore comments */
 		if (!tokens[0] || tokens[0][0] == '#')
-		{
 			continue;
-		}
 
 		/* process opcodes */
 		manage_stack(&stack, tokens, line_number);
 	}
 	fclose(fp);
-
 	if (stack)
-	{
 		free_stack(&stack);
-	}
 
 	return (0);
 }

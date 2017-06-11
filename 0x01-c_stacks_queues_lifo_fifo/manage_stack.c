@@ -34,20 +34,8 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		{ NULL, NULL }
 	};
 
-	if (strcmp(tokens[0], "stack") == 0)
+	if (push_check(stack, tokens, line_number, sentinel) == 0)
 	{
-		sentinel = 0;
-		return (EXIT_SUCCESS);
-	}
-	else if (strcmp(tokens[0], "queue") == 0)
-	{
-		sentinel = 1;
-		return (EXIT_SUCCESS);
-	}
-
-	if (strcmp(tokens[0], "push") == 0)
-	{
-		op_push(stack, tokens, line_number, sentinel);
 		return (EXIT_SUCCESS);
 	}
 
