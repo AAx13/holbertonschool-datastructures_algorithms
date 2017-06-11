@@ -71,3 +71,34 @@ pall
 `pall` Prints all the values on the stack, starting from the top of the stack.
 * Usage: `pall`
 
+`pint` Prints the value at the top of the stack, followed by a new line.
+* Usage: `pint`
+
+`pop` Removes the top element of the stack.
+* Usage: `pop`
+
+``
+
+``
+
+``
+
+``
+
+``
+
+``
+
+``
+
+``
+
+``
+
+``
+
+``
+
+``
+
+``
