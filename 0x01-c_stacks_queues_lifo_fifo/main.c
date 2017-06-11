@@ -4,9 +4,6 @@
 #include <string.h>
 #include "monty.h"
 
-/* Initialization of the stack */
-stack_t *stack = NULL;
-
 /**
  * main - main crossroad in processing monty opcodes.
  * @ac: Amount of args passed (int).
@@ -20,6 +17,9 @@ int main(int ac, char **av)
 	char buf[101];
 	unsigned int line_number;
 	char *tokens[3] = { NULL, NULL, NULL };
+
+	/* Initialization of the stack */
+	stack_t *stack = NULL;
 
 	if (ac != 2)
 	{
