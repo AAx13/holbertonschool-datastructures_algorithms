@@ -91,4 +91,7 @@ void op_pstr(stack_t **stack, unsigned int line_number);
 /* op_rotl - rotates the stack to the top. */
 void op_rotl(stack_t **stack, unsigned int line_number);
 
+/* op_rotr - rotates the stack to the bottom. */
+void op_rotr(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY */

@@ -29,6 +29,7 @@ int manage_stack(stack_t **stack, char **tokens, unsigned int line_number)
 		{ "pchar", &op_pchar },
 		{ "pstr", &op_pstr },
 		{ "rotl", &op_rotl },
+		{ "rotr", &op_rotr },
 		{ NULL, NULL }
 	};
 
