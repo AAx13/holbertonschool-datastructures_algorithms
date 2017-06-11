@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../monty.h"
+#include "monty.h"
 
 /**
- * op_rotl - rotates the stack to the top.
+ * op_rotr - rotates the stack to the bottom.
  * @stack: A stack to operate on.
  * @line_number: Line number of the current opcode in operation.
  *
  * Return: Void.
  */
-void op_rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void op_rotr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *head, *tail;
 
@@ -24,13 +24,12 @@ void op_rotl(stack_t **stack, unsigned int line_number __attribute__((unused)))
 
 		if (tail->next == NULL)
 		{
-			*stack = head->next;
-			(*stack)->prev = NULL;
+			tail->prev->next = NULL;
+			tail->next = head;
+			tail->prev = NULL;
 
 			head->prev = tail;
-			head->next = NULL;
-
-			tail->next = head;
+			*stack = tail;
 			break;
 		}
 		tail = tail->next;

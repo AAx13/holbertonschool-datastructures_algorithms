@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "../monty.h"
+#include "monty.h"
 
 /**
  * op_pop - removes the top element of the stack.

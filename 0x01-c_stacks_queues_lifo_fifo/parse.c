@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "../monty.h"
+#include "monty.h"
 
 /**
  * parse - checks line from file for a single command and argument.

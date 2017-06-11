@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../monty.h"
+#include "monty.h"
 
 /**
  * op_pchar - prints the char at the top of the stack, followed by a new line.

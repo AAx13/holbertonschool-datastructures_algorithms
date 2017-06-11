@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../monty.h"
+#include "monty.h"
 
 /**
  * op_div - divides the second top element of the stack by the top element.

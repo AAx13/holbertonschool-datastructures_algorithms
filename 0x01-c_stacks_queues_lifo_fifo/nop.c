@@ -1,4 +1,4 @@
-#include "../monty.h"
+#include "monty.h"
 
 /**
  * op_nop - doesn't do anything.
