@@ -31,7 +31,7 @@ void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel)
 		new_node->prev = NULL;
 		*stack = new_node;
 	}
-	else if (sent == 1)
+	else if (sentinel == 1)
 	{
 		for (; head; head = head->next)
 		{
