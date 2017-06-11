@@ -20,15 +20,28 @@ void op_swap(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	tmp_node = head->next;
-	tail = tmp_node->next;
+	if (head->next->next == NULL)
+	{
+		tmp_node = head->next;
+		tmp_node->prev = NULL;
 
-	tail->prev = head;
-	head->next = tail;
+		tmp_node->next = head;
+		head->next = NULL;
 
-	tmp_node->prev = NULL;
-	head->prev = tmp_node;
+		head->prev = tmp_node;
+	}
+	else
+	{
+		tmp_node = head->next;
+		tail = tmp_node->next;
 
-	tmp_node->next = head;
+		tail->prev = head;
+		head->next = tail;
+
+		tmp_node->prev = NULL;
+		head->prev = tmp_node;
+
+		tmp_node->next = head;
+	}
 	*stack = tmp_node;
 }
