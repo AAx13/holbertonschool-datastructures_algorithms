@@ -46,8 +46,8 @@ void free_stack(stack_t **stack);
 /* manage_stack - manage the passing of opcode to their respective functions */
 int manage_stack(stack_t **stack, char **tokens, unsigned int line_number);
 
-/* op_push - push an element onto the stack. */
-void op_push(stack_t **stack, char **tokens, unsigned int line_number);
+/* op_push - push an element onto the stack or queue. */
+void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel);
 
 /* op_pall - print the stack. */
 void op_pall(stack_t **stack, unsigned int line_number);
@@ -93,11 +93,5 @@ void op_rotl(stack_t **stack, unsigned int line_number);
 
 /* op_rotr - rotates the stack to the bottom. */
 void op_rotr(stack_t **stack, unsigned int line_number);
-
-/* op_stack - sets the format of the data to a stack (LIFO). */
-/*void op_stack(stack_t **stack, unsigned int line_number);*/
-
-/* op_queue - sets the format of the data to a queue (FIFO). */
-/*void op_queue(stack_t **stack, unsigned int line_number);*/
 
 #endif /* MONTY */

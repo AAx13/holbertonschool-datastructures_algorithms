@@ -20,6 +20,7 @@ void op_pstr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 		{
 			break;
 		}
+
 		putchar(head->n);
 		head = head->next;
 	}

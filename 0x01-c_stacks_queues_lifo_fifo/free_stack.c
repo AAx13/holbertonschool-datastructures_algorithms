@@ -9,21 +9,14 @@
  */
 void free_stack(stack_t **stack)
 {
-	stack_t *tmp_node;
+	stack_t *tmp_node, *head;
 
 	tmp_node = NULL;
-	while (*stack)
+	head = *stack;
+	while (head)
 	{
-		if (!(*stack)->next)
-		{
-			while (*stack)
-			{
-				tmp_node = *stack;
-				*stack = (*stack)->prev;
-				free(tmp_node);
-			}
-			break;
-		}
-		*stack = (*stack)->next;
+		tmp_node = head;
+		head = head->next;
+		free(tmp_node);
 	}
 }
