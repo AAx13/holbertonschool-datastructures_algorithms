@@ -94,4 +94,10 @@ void op_rotl(stack_t **stack, unsigned int line_number);
 /* op_rotr - rotates the stack to the bottom. */
 void op_rotr(stack_t **stack, unsigned int line_number);
 
+/* op_stack - sets the format of the data to a stack (LIFO). */
+/*void op_stack(stack_t **stack, unsigned int line_number);*/
+
+/* op_queue - sets the format of the data to a queue (FIFO). */
+/*void op_queue(stack_t **stack, unsigned int line_number);*/
+
 #endif /* MONTY */
