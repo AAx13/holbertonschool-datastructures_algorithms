@@ -9,7 +9,7 @@ Monty byte code files can contain blank lines (empty or made of spaces only, and
 Example of Monty Bytecode file:
 
 ```
-Ubuntu:0x01-c_stacks_queues_lifo_fifo vagrant$ cat bytecodes/000.m
+ $ cat bytecodes/000.m
 push 0
 push 1
 push 2
@@ -43,5 +43,19 @@ The Monty Bytecode Interpreter Program.
 Usage: `./monty file`
 
 * Where `file` is the path to the Monty Bytecode file.
+
+```
+ $ cat bytecodes/00.m
+push 1
+push 2
+push 3
+pall
+
+ $ ./monty bytecodes/00.m
+3
+2
+1
+```
+
 
 ## Opcodes
