@@ -94,4 +94,10 @@ void op_rotl(stack_t **stack, unsigned int line_number);
 /* op_rotr - rotates the stack to the bottom. */
 void op_rotr(stack_t **stack, unsigned int line_number);
 
+/* op_queue - pushes to a queue. */
+void op_queue(stack_t **stack, stack_t *new_node);
+
+/* op_stack - pushes to a stack. */
+void op_stack(stack_t **stack, stack_t *new_node);
+
 #endif /* MONTY */

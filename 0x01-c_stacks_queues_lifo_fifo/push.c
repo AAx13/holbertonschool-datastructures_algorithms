@@ -20,12 +20,14 @@ void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel)
 		printf("L%d: usage: push integer\n", ln);
 		exit(EXIT_FAILURE);
 	}
+
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+
 	head = *stack;
 	if (head == NULL)
 	{
@@ -35,22 +37,11 @@ void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel)
 	}
 	else if (sentinel == 1)
 	{
-		for (; head; head = head->next)
-		{
-			if (head->next == NULL)
-			{
-				head->next = new_node;
-				new_node->next = NULL;
-				new_node->prev = head;
-			}
-		}
+		op_queue(stack, new_node);
 	}
 	else
 	{
-		new_node->next = head;
-		head->prev = new_node;
-		new_node->prev = NULL;
-		*stack = new_node;
+		op_stack(stack, new_node);
 	}
 	new_node->n = atoi(tokens[1]);
 }
