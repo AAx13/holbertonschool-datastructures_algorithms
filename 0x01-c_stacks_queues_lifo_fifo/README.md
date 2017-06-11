@@ -34,3 +34,11 @@ push 5
 push 6
 pall
 ```
+
+The Monty Program.
+
+Create the executable: `make`
+To delete the executable and all unecessary files: `make clean`
+
+Usage: `./monty file`
+Where `file` is the path to the Monty Bytecode file.
