@@ -16,14 +16,16 @@ void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel)
 	stack_t *new_node, *head;
 
 	if (!tokens[1] || isnum(tokens[1]) != 0)
+	{
 		printf("L%d: usage: push integer\n", ln);
 		exit(EXIT_FAILURE);
-
+	}
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
+	{
 		printf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
-
+	}
 	head = *stack;
 	if (head == NULL)
 	{

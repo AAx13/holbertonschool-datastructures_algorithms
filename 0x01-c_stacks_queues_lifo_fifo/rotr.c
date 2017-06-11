@@ -18,7 +18,9 @@ void op_rotr(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	while (tail)
 	{
 		if (tail == head && tail->next == NULL)
+		{
 			break;
+		}
 
 		if (tail->next == NULL)
 		{
