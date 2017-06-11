@@ -43,5 +43,6 @@ void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel)
 	{
 		op_stack(stack, new_node);
 	}
+
 	new_node->n = atoi(tokens[1]);
 }
