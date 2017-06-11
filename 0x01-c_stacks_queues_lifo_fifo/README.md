@@ -68,27 +68,27 @@ pall
 * Usage: `push <int>`
 * where `<int>` is an integer.
 
----
+##
 
 `pall` Prints all the values on the stack, starting from the top of the stack.
 * Usage: `pall`
 
----
+##
 
 `pint` Prints the value at the top of the stack, followed by a new line.
 * Usage: `pint`
 
----
+##
 
 `pop` Removes the top element of the stack.
 * Usage: `pop`
 
----
+##
 
 `swap` Swaps the top two elements of the stack.
 * Usage: `swap`
 
----
+##
 
 `add` Adds the top two elements of the stack.
 * Usage: `add`
@@ -96,12 +96,12 @@ pall
 * The top element of the stack contains the result
 * The stack is one element shorter.
 
----
+##
 
 `nop` Doesn't do anything.
 * Usage: `nop`
 
----
+##
 
 `sub` Subtracts the top element of the stack from the second top element of the stack.
 * Usage: `sub`
@@ -109,7 +109,7 @@ pall
 * The top element of the stack contains the result
 * The stack is one element shorter.
 
----
+##
 
 `div` Divides the second top element of the stack by the top element of the stack.
 * Usage: `div`
@@ -117,7 +117,7 @@ pall
 * The top element of the stack contains the result
 * The stack is one element shorter.
 
----
+##
 
 `mul` Multiplies the second top element of the stack with the top element of the stack.
 * Usage: `mul`
@@ -125,7 +125,7 @@ pall
 * The top element of the stack contains the result
 * The stack is one element shorter.
 
----
+##
 
 `mod` Computes the rest of the division of the second top element of the stack by the top element of the stack.
 * Usage: `mod`
@@ -133,36 +133,36 @@ pall
 * The top element of the stack contains the result
 * The stack is one element shorter.
 
----
+##
 
 `#` Comment implementation. Everything on this line after the `#` is not processed.
 
----
+##
 
 `pchar` Prints the char at the top of the stack, followed by a new line.
 * Usage: `pchar`
 * The integer stored at the top of the stack is treated as the ascii value of the character to be printed.
 
----
+##
 
 `pstr` Prints the string starting at the top of the stack, followed by a new line.
 * Usage: `pstr`
 * The integer stored in each element of the stack is treated as the ascii value of the character to be printed.
 * If the stack is empty, print only a new line.
 
----
+##
 
 `rotl` Rotates the stack to the top.
 * Usage: `rotl`
 * The top element of the stack becomes the last one, and the second top element of the stack becomes the first one.
 
----
+##
 
 `rotr` Rotates the stack to the bottom.
 * Usage: `rotr`
 * The last element of the stack becomes the top element of the stack.
 
----
+##
 
 `stack` Sets the format of the data to a stack (LIFO). This is the default behavior of the program.
 * Usage: `stack`
@@ -175,4 +175,4 @@ pall
 * The top of the stack becomes the front of the queue.
 * The front of the queue becomes the top of the stack.
 
----
+##
