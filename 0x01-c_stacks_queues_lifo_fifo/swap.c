@@ -11,7 +11,7 @@
  */
 void op_swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head, *tmp_node;
+	stack_t *head, *tail, *tmp_node;
 
 	head = *stack;
 	if (!head || head->next == NULL)
@@ -21,13 +21,14 @@ void op_swap(stack_t **stack, unsigned int line_number)
 	}
 
 	tmp_node = head->next;
-	free(head);
+	tail = tmp_node->next;
 
-	head = tmp_node->next;
+	tail->prev = head;
+	head->next = tail;
+
+	tmp_node->prev = NULL;
 	head->prev = tmp_node;
-	head->next = tmp_node->next->next;
 
 	tmp_node->next = head;
-	tmp_node->prev = NULL;
 	*stack = tmp_node;
 }
