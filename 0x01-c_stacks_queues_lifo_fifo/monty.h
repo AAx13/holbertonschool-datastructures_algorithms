@@ -47,10 +47,10 @@ void free_stack(stack_t **stack);
 int manage_stack(stack_t **stack, char **tokens, unsigned int line_number);
 
 /* push_check - checks for push, queue, and stack opcode commands */
-int push_check(stack_t **stack, char **token, unsigned int ln, int sentinel);
+int push_check(stack_t **stack, char **token, unsigned int ln, int *sentinel);
 
 /* op_push - push an element onto the stack or queue. */
-void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel);
+void op_push(stack_t **stack, char **tokens, unsigned int ln, int *sentinel);
 
 /* op_pall - print the stack. */
 void op_pall(stack_t **stack, unsigned int line_number);

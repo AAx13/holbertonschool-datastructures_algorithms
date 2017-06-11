@@ -11,7 +11,7 @@
  *
  * Return: Void.
  */
-void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel)
+void op_push(stack_t **stack, char **tokens, unsigned int ln, int *sentinel)
 {
 	stack_t *new_node, *head;
 
@@ -35,7 +35,7 @@ void op_push(stack_t **stack, char **tokens, unsigned int ln, int sentinel)
 		new_node->prev = NULL;
 		*stack = new_node;
 	}
-	else if (sentinel == 1)
+	else if (*sentinel == 1)
 	{
 		op_queue(stack, new_node);
 	}

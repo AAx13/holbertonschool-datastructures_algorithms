@@ -10,16 +10,16 @@
  *
  * Return: 0 if stack queue or push. Else 1.
  */
-int push_check(stack_t **stack, char **tokens, unsigned int ln, int sentinel)
+int push_check(stack_t **stack, char **tokens, unsigned int ln, int *sentinel)
 {
 	if (strcmp(tokens[0], "stack") == 0)
 	{
-		sentinel = 0;
+		*sentinel = 0;
 		return (0);
 	}
 	else if (strcmp(tokens[0], "queue") == 0)
 	{
-		sentinel = 1;
+		*sentinel = 1;
 		return (0);
 	}
 	else if (strcmp(tokens[0], "push") == 0)
