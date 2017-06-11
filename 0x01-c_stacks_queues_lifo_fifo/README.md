@@ -1,4 +1,4 @@
-# C - Stacks, Queues - LIFO, FIFO Project
+# Stacks, Queues - LIFO, FIFO Project
 
 ### Tools
 * Ubuntu 14.04LTS
