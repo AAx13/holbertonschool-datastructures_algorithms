@@ -63,3 +63,11 @@ pall
 
 
 ## Opcodes
+
+`push` Pushes an element to the stack.
+* Usage: `push <int>`
+* where `<int>` is an integer.
+
+`pall` Prints all the values on the stack, starting from the top of the stack.
+* Usage: `pall`
+
