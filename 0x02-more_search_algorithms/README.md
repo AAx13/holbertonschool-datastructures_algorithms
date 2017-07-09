@@ -11,7 +11,7 @@
 int jump_search(int *array, size_t size, int value);
 ```
 
-[interpolation_search](../0x02-more_search_algorithms/102-interpolation_search.c)
+[interpolation_search](../0x02-more_search_algorithms/102-interpolation.c)
 ```c
 /**
  * interpolation_search - searches for a value in a sorted
@@ -21,7 +21,7 @@ int jump_search(int *array, size_t size, int value);
 int interpolation_search(int *array, size_t size, int value);
 ```
 
-[exponential_search](../0x02-more_search_algorithms/103-exponential_search.c)
+[exponential_search](../0x02-more_search_algorithms/103-exponential.c)
 ```c
 /**
  * binary_search - searches for a value in an array of integers.
