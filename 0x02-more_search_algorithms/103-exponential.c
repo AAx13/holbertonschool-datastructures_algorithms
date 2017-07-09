@@ -29,17 +29,18 @@ int binary_search(int *array, size_t left, size_t right, int value)
 			}
 			print++;
 		}
-
+		if (left == right && array[left] != value)
+		{
+			return (-1);
+		}
 		if (value == array[mid])
 		{
 			return (mid);
 		}
-
 		if (value > array[mid])
 		{
 			left = mid + 1;
 		}
-
 		if (value < array[mid])
 		{
 			right = mid;
@@ -68,16 +69,12 @@ int exponential_search(int *array, size_t size, int value)
 		return (-1);
 	}
 
-	left = 0;
+	left = 1;
 	right = size;
 
-	while (left < right && array[left] < value)
+	while (left < right && array[left] <= value)
 	{
 		printf("Value checked array[%lu] = [%d]\n", left, array[left]);
-		if (left == 0)
-		{
-			left++;
-		}
 		left *= 2;
 	}
 	right = left;
