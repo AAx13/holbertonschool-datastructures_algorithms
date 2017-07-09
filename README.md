@@ -5,3 +5,6 @@
 
 [0x01-big-0-binary-search](../master/0x01-big-0-binary-search)
 * Answers to Big-O problems. Binary and Linear search algorithms.
+
+[0x02-more_search_algorithms](../master/0x02-more_search_algorithms)
+* More Big-O Notation problems and Search Algorithms.
