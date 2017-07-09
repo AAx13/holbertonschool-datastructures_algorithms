@@ -1,6 +1,6 @@
-## More search & Big O Project
+# More search & Big O Project
 
-# Search Functions
+## Search Functions
 
 [jump_search](../0x02-more_search_algorithms/100-jump.c)
 ```c
