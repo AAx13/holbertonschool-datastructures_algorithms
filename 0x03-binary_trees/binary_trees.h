@@ -26,7 +26,5 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
 void binary_tree_delete(binary_tree_t *tree);
-void right_leaf_delete(binary_tree_t *right_leaf);
-void left_leaf_delete(binary_tree_t *left_leaf);
 
 #endif /* _TREE_H_ */
