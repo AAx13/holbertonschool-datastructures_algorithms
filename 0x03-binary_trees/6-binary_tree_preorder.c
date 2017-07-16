@@ -3,7 +3,7 @@
 /**
  * binary_tree_preorder - goes through a binary tree using pre-order traversal.
  * @tree: A node in a binary tree.
- * @func: Punction pointer to function that prints the value of a node.
+ * @func: Function pointer to one that prints the value of a node.
  *
  * Return: Void.
  */
