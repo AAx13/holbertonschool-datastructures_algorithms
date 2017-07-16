@@ -18,18 +18,16 @@ size_t binary_tree_size(const binary_tree_t *tree)
 		return (1 + binary_tree_size(tree->left)
 			  + binary_tree_size(tree->right));
 	}
-	else if (tree->left && !tree->right)
+
+	if (tree->left)
 	{
 		return (1 + binary_tree_size(tree->left));
 	}
-	else if (tree->right && !tree->left)
+
+	if (tree->right)
 	{
 		return (1 + binary_tree_size(tree->right));
 	}
-	else
-	{
-		return (1);
-	}
 
-	return (0);
+	return (1);
 }
