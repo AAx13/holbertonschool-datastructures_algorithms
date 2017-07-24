@@ -62,7 +62,7 @@ size_t binary_tree_height(const binary_tree_t *tree);
 
 [binary_tree_depth](../0x03-binary_trees/10-binary_tree_depth.c)
 ```c
-* binary_tree_depth - measures the depth of a node in a binary tree. */
+/* binary_tree_depth - measures the depth of a node in a binary tree. */
 size_t binary_tree_depth(const binary_tree_t *node);
 ```
 
