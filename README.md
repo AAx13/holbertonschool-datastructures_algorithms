@@ -8,3 +8,6 @@
 
 [0x02-more_search_algorithms](../master/0x02-more_search_algorithms)
 * More Big-O Notation problems and Search Algorithms.
+
+[0x03-binary_trees](../master/0x03-binary_trees)
+* Various functions utilizing and manipulating the binary tree data structure.
