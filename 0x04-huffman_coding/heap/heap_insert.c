@@ -1,10 +1,10 @@
 #include "heap.h"
 
 /**
- * binary_tree_sibling - finds the sibling of a node.
- * @node:  A pointer to a binary tree node.
+ * binary_tree_sibling - returns the sibling of node passed.
+ * @node: Node to find a sibling for.
  *
- * Return: The sibling to the node passed. Or NULL if failed.
+ * Return: Sibling of passed node or NULL.
  */
 binary_tree_node_t *binary_tree_sibling(binary_tree_node_t *node)
 {
@@ -69,48 +69,54 @@ void min_heapify(heap_t *heap, binary_tree_node_t *last_node)
 }
 
 /**
- * build_tree - insert nodes as they arrive.
+ * insert - insert nodes into a heap data structure.
+ * @heap: A heap data structure.
  * @last_node: Last node inserted.
  * @data: Data to store at the new node.
  *
  * Return: Newest node inserted.
  */
-binary_tree_node_t *build_tree(binary_tree_node_t *last_node, void *data)
+binary_tree_node_t *insert(heap_t *heap, void *data)
 {
 	binary_tree_node_t *tmp_node, *node;
+	int position, left, right;
 
-	tmp_node = last_node;
-	if (!tmp_node->parent && !binary_tree_sibling(tmp_node))
+	heap->size += 1;
+	left = 0, right = 0;
+	position = (int)heap->size;
+	tmp_node = heap->root;
+	while (position > 1)
 	{
-		node = binary_tree_node(tmp_node, data);
-		tmp_node->left = node;
-		return (node);
-	}
-	else if (!binary_tree_sibling(tmp_node))
-	{
-		node = binary_tree_node(tmp_node->parent, data);
-		tmp_node->parent->right = node;
-		return (node);
-	}
-
-	tmp_node = binary_tree_sibling(tmp_node);
-	if (binary_tree_uncle(tmp_node))
-	{
-		tmp_node = binary_tree_uncle(tmp_node);
-		if (tmp_node->left)
+		position = position / 2;
+		if (position % 2 == 0 || (position % 2 == 1 && !tmp_node->left))
 		{
+			if (!tmp_node->left)
+			{
+				left++;
+				right = 0;
+				break;
+			}
 			tmp_node = tmp_node->left;
 		}
+		else
+		{
+			if (!tmp_node->right)
+			{
+				right++;
+				left = 0;
+				break;
+			}
+			tmp_node = tmp_node->right;
+		}
 	}
+	node = binary_tree_node(tmp_node, data);
 
-	if (!tmp_node->left)
-	{
-		node = binary_tree_node(tmp_node, data);
+	if (left > right)
 		tmp_node->left = node;
-		return (node);
-	}
+	else
+		tmp_node->right = node;
 
-	return (NULL);
+	return (node);
 }
 
 /**
@@ -123,7 +129,6 @@ binary_tree_node_t *build_tree(binary_tree_node_t *last_node, void *data)
  */
 binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 {
-	static binary_tree_node_t *last_node;
 	binary_tree_node_t *node;
 
 	node = malloc(sizeof(binary_tree_node_t));
@@ -141,18 +146,11 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 		}
 		heap->size += 1;
 		heap->root = node;
-		last_node = node;
-		printf("addy of last node: %p\n", (void *)last_node);
+
 		return (node);
 	}
-	node = build_tree(last_node, data);
-	if (!node)
-	{
-		return (NULL);
-	}
-	last_node = node;
+	node = insert(heap, data);
 	min_heapify(heap, node);
-	heap->size += 1;
 
 	return (node);
 }

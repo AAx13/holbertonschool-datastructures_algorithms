@@ -2,6 +2,7 @@
 #define _HEAP_H_
 
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
 /**
