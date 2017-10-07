@@ -15,7 +15,13 @@ void min_heapify(heap_t *heap, binary_tree_node_t *last_node)
 	current_node = last_node;
 	while (current_node->parent)
 	{
-		if (current_node->parent->data && heap->data_cmp(current_node->data
+		if (!current_node->data)
+		{
+			tmp_data = current_node->data;
+			current_node->data = current_node->parent->data;
+			current_node->parent->data = tmp_data;
+		}
+		else if (current_node->parent->data && heap->data_cmp(current_node->data
 								 , current_node->parent->data) < 0)
 		{
 			tmp_data = current_node->data;
@@ -38,9 +44,8 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 {
 	static binary_tree_node_t **heap_array;
 	size_t index, parent_index;
-	int null_data[1];
 
-	index = heap->size, null_data[0] = 0;
+	index = heap->size;
 	if (index == 0)
 		heap_array = malloc(sizeof(binary_tree_node_t *));
 	else
@@ -49,11 +54,7 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 	if (!heap || !heap_array)
 		return (NULL);
 
-	if (!data)
-		heap_array[index] = binary_tree_node(NULL, null_data);
-	else
-		heap_array[index] = binary_tree_node(NULL, data);
-
+	heap_array[index] = binary_tree_node(NULL, data);
 	if (index == 0)
 	{
 		heap->root = heap_array[index];
