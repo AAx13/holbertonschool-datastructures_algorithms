@@ -38,7 +38,7 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 {
 	static binary_tree_node_t **heap_array;
 	size_t index, parent_index;
-	int null_data[1];
+	int null_data[1], i;
 
 	index = heap->size, *null_data = 0;
 	if (index == 0)
@@ -74,6 +74,14 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 	}
 	min_heapify(heap, heap_array[index]);
 	heap->size++;
+
+	printf("Heap Array:\n");
+	for (i = 0; i < (int)heap->size; i++)
+	{
+		printf("[ %d ] ", *((int *)heap_array[i]->data));
+	}
+	printf("\n\n");
+	printf("Heap Tree:\n");
 
 	return (heap_array[index]);
 }
