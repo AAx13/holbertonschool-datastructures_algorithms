@@ -42,10 +42,10 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 
 	index = heap->size, null_data = 0;
 	if (index == 0)
-		heap_array = malloc(8);
+		heap_array = malloc(sizeof(binary_tree_node_t *));
 	else
-		heap_array = realloc(heap_array, 8 * (heap->size + 1));
-
+		heap_array = realloc(heap_array, sizeof(binary_tree_node_t *)
+				     * (heap->size + 1));
 	if (!heap || !heap_array)
 		return (NULL);
 
