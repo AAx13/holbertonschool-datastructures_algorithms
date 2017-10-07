@@ -38,8 +38,9 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 {
 	static binary_tree_node_t **heap_array;
 	size_t index, parent_index;
+	int null_data[1];
 
-	index = heap->size;
+	index = heap->size, *null_data = 0;
 	if (index == 0)
 		heap_array = malloc(8);
 	else
@@ -48,7 +49,11 @@ binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 	if (!heap || !heap_array)
 		return (NULL);
 
-	heap_array[index] = binary_tree_node(NULL, data);
+	if (!data)
+		heap_array[index] = binary_tree_node(NULL, null_data);
+	else
+		heap_array[index] = binary_tree_node(NULL, data);
+
 	if (index == 0)
 	{
 		heap->root = heap_array[index];
