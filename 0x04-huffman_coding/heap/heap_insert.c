@@ -1,5 +1,4 @@
 #include "heap.h"
-#include <string.h>
 
 /**
  * min_heapify - sort a binary tree to Min Binary Heap format.
