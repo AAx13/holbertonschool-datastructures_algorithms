@@ -1,46 +1,5 @@
 #include "heap.h"
-
-/**
- * binary_tree_sibling - returns the sibling of node passed.
- * @node: Node to find a sibling for.
- *
- * Return: Sibling of passed node or NULL.
- */
-binary_tree_node_t *binary_tree_sibling(binary_tree_node_t *node)
-{
-	if (!node || !node->parent)
-	{
-		return (NULL);
-	}
-
-	if (node->parent->left == node)
-	{
-		return (node->parent->right);
-	}
-
-	if (node->parent->right == node)
-	{
-		return (node->parent->left);
-	}
-
-	return (NULL);
-}
-
-/**
- * binary_tree_uncle - finds the uncle of a node.
- * @node:  A pointer to a binary tree node.
- *
- * Return: The uncle of the node passed. Or NULL if failed.
- */
-binary_tree_node_t *binary_tree_uncle(binary_tree_node_t *node)
-{
-	if (!node || !node->parent || !node->parent->parent)
-	{
-		return (NULL);
-	}
-
-	return (binary_tree_sibling(node->parent));
-}
+#include <string.h>
 
 /**
  * min_heapify - sort a binary tree to Min Binary Heap format.
@@ -69,57 +28,6 @@ void min_heapify(heap_t *heap, binary_tree_node_t *last_node)
 }
 
 /**
- * insert - insert nodes into a heap data structure.
- * @heap: A heap data structure.
- * @last_node: Last node inserted.
- * @data: Data to store at the new node.
- *
- * Return: Newest node inserted.
- */
-binary_tree_node_t *insert(heap_t *heap, void *data)
-{
-	binary_tree_node_t *tmp_node, *node;
-	int position, left, right;
-
-	heap->size += 1;
-	left = 0, right = 0;
-	position = (int)heap->size;
-	tmp_node = heap->root;
-	while (position > 1)
-	{
-		position = position / 2;
-		if (position % 2 == 0 || (position % 2 == 1 && !tmp_node->left))
-		{
-			if (!tmp_node->left)
-			{
-				left++;
-				right = 0;
-				break;
-			}
-			tmp_node = tmp_node->left;
-		}
-		else
-		{
-			if (!tmp_node->right)
-			{
-				right++;
-				left = 0;
-				break;
-			}
-			tmp_node = tmp_node->right;
-		}
-	}
-	node = binary_tree_node(tmp_node, data);
-
-	if (left > right)
-		tmp_node->left = node;
-	else
-		tmp_node->right = node;
-
-	return (node);
-}
-
-/**
  * heap_insert - inserts a value in a Min Binary Heap.
  * @heap: A pointer to the heap in which the node has to be inserted.
  * @data: A pointer containing the data to store in the new node.
@@ -129,28 +37,39 @@ binary_tree_node_t *insert(heap_t *heap, void *data)
  */
 binary_tree_node_t *heap_insert(heap_t *heap, void *data)
 {
-	binary_tree_node_t *node;
+	static binary_tree_node_t **heap_array;
+	size_t index, parent_index;
 
-	node = malloc(sizeof(binary_tree_node_t));
-	if (!heap || !node)
-	{
+	index = heap->size;
+	if (index == 0)
+		heap_array = malloc(8);
+	else
+		heap_array = realloc(heap_array, 8 * (heap->size + 1));
+
+	if (!heap || !heap_array)
 		return (NULL);
-	}
 
-	if (!heap->root)
+	heap_array[index] = binary_tree_node(NULL, data);
+	if (index == 0)
 	{
-		node = binary_tree_node(NULL, data);
-		if (!node)
-		{
-			return (NULL);
-		}
-		heap->size += 1;
-		heap->root = node;
-
-		return (node);
+		heap->root = heap_array[index];
 	}
-	node = insert(heap, data);
-	min_heapify(heap, node);
+	else
+	{
+		parent_index = (index + 1) / 2;
+		heap_array[index]->parent = heap_array[parent_index - 1];
+		if (parent_index * 2 == index + 1)
+		{
+			heap_array[parent_index - 1]->left = heap_array[index];
+		}
+		else if (parent_index * 2 + 1 == index + 1)
+		{
+			heap_array[parent_index - 1]->right = heap_array[index];
+		}
 
-	return (node);
+	}
+	min_heapify(heap, heap_array[index]);
+	heap->size++;
+
+	return (heap_array[index]);
 }
