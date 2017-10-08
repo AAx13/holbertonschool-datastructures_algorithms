@@ -134,12 +134,16 @@ void min_heapify(heap_t *heap, binary_tree_node_t *last_node)
 }
 
 /**
+ * num_to_binary - converts a node position to binary string representation.
+ * @heap: A Min Binary Heap.
+ * @num: Next node position.
  *
+ * Return: A binary string.
  */
 char *num_to_binary(heap_t *heap, int num)
 {
 	char *binary_string;
-	size_t index, i;
+	size_t index;
 
 	index = binary_tree_height(heap->root);
 	if (index != 1 && binary_tree_is_perfect(heap->root) != 1)
@@ -158,12 +162,6 @@ char *num_to_binary(heap_t *heap, int num)
 		index--;
 		num /= 2;
 	}
-
-	for (i = 0; i < strlen(binary_string); i++)
-	{
-		printf("[%c] ", binary_string[i]);
-	}
-	printf("\n");
 
 	return (binary_string);
 }
