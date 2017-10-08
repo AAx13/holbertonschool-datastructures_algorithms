@@ -2,6 +2,7 @@
 #define _HEAP_H_
 
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
 /**
@@ -33,6 +34,8 @@ typedef struct heap_s
 	int (*data_cmp)(void *, void *);
 	binary_tree_node_t *root;
 } heap_t;
+
+int power(int num, int exponent);
 
 heap_t *heap_create(int (*data_cmp)(void *, void *));
 binary_tree_node_t *binary_tree_node(binary_tree_node_t *parent, void *data);
